@@ -7,6 +7,7 @@ export const useProduct = () => useContext(productContext);
 
 const INIT_STATE = {
   products: [],
+  oneProduct: [],
 };
 
 const ProductContextProvider = ({ children }) => {
@@ -14,6 +15,8 @@ const ProductContextProvider = ({ children }) => {
     switch (action.type) {
       case "GET_PRODUCTS":
         return { ...state, products: action.payload };
+      case "GET_ONE_PRODUCT":
+        return { ...state, oneProduct: action.payload };
     }
   };
   const navigate = useNavigate();
@@ -35,11 +38,41 @@ const ProductContextProvider = ({ children }) => {
     });
   };
 
+  //!DELETE
+
+  const deleteProduct = async (id) => {
+    await axios.delete(`${API}/${id}`);
+    getProducts();
+  };
+
+  const getOneProduct = async (id) => {
+    const { data } = await axios(`${API}/${id}`);
+
+    dispatch({
+      type: "GET_ONE_PRODUCT",
+      payload: data,
+    });
+  };
+
+  //! Edit
+
+  const editProduct = async (id, editedProduct) => {
+    console.log(id, editProduct);
+    await axios.patch(`${API}/${id}`, editedProduct);
+    navigate("/products");
+  };
+
   const values = {
     createProduct,
     getProducts,
+    getOneProduct,
     products: state.products,
+    deleteProduct,
+    oneProduct: state.oneProduct,
+    editProduct,
   };
+
+  //! getOneProduct
 
   return (
     <div>

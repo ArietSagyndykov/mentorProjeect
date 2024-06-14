@@ -11,7 +11,7 @@ const ProductList = () => {
   console.log(products);
   return (
     <div>
-      <Box>
+      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         {products.map((elem) => (
           <ProductCard key={elem.id} {...elem} />
         ))}

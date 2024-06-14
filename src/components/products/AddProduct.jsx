@@ -55,7 +55,7 @@ const AddProduct = () => {
         onChange={handleInput}
       />
       <TextField
-        name="descriptiom"
+        name="description"
         fullWidth
         label="Description"
         variant="outlined"
