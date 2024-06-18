@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
-import { API } from "../helpers/const";
+import { API, API_CATEGORY } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
 export const productContext = createContext();
 export const useProduct = () => useContext(productContext);
@@ -8,6 +8,7 @@ export const useProduct = () => useContext(productContext);
 const INIT_STATE = {
   products: [],
   oneProduct: [],
+  categories: [],
 };
 
 const ProductContextProvider = ({ children }) => {
@@ -17,6 +18,9 @@ const ProductContextProvider = ({ children }) => {
         return { ...state, products: action.payload };
       case "GET_ONE_PRODUCT":
         return { ...state, oneProduct: action.payload };
+
+      case "GET_CATEGORIES":
+        return { ...state, categories: action.payload };
     }
   };
   const navigate = useNavigate();
@@ -31,7 +35,7 @@ const ProductContextProvider = ({ children }) => {
   //! GET
 
   const getProducts = async () => {
-    const { data } = await axios(API);
+    const { data } = await axios(`${API}${window.location.search}`);
     dispatch({
       type: "GET_PRODUCTS",
       payload: data,
@@ -62,6 +66,36 @@ const ProductContextProvider = ({ children }) => {
     navigate("/products");
   };
 
+  //! getOneProduct
+
+  //! Create Category
+  const createCategory = async (newCategory) => {
+    await axios.post(API_CATEGORY, newCategory);
+    navigate("/products");
+  };
+
+  //! Get Categories
+
+  const getCategories = async () => {
+    const { data } = await axios(API_CATEGORY);
+    dispatch({
+      type: "GET_CATEGORIES",
+      payload: data,
+    });
+  };
+
+  //! filter
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(window.location.search);
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    const url = `${window.location.pathname}?${search}`;
+    navigate(url);
+  };
+
   const values = {
     createProduct,
     getProducts,
@@ -70,9 +104,11 @@ const ProductContextProvider = ({ children }) => {
     deleteProduct,
     oneProduct: state.oneProduct,
     editProduct,
+    createCategory,
+    getCategories,
+    categories: state.categories,
+    fetchByParams,
   };
-
-  //! getOneProduct
 
   return (
     <div>

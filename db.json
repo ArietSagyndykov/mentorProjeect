@@ -5,15 +5,110 @@
       "price": 170,
       "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0733729c-4e35-404b-a5db-88ca3b19d87a/air-dt-max-96-mens-shoes-jBR1kS.png",
       "description": "AirMax",
+      "category": "Кроссовки",
       "id": 1
     },
     {
-      "title": "Nik",
-      "price": 170,
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0733729c-4e35-404b-a5db-88ca3b19d87a/air-dt-max-96-mens-shoes-jBR1kS.png",
-      "description": "AirMax",
+      "title": "Nike Dunk Low Retro",
+      "description": "Men's Shoes",
+      "price": 140,
+      "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df9a3e19-ea99-4586-b63a-483c096e1715/dunk-low-retro-mens-shoes-6sznpN.png",
+      "category": "Кроссовки",
       "id": 2
+    },
+    {
+      "title": "Air Jordan 1 Low",
+      "description": "Men's Shoes",
+      "price": 150,
+      "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/1fa458f5-efbb-48da-a668-7ec7da37154e/air-jordan-1-low-mens-shoes-0LXhbn.png",
+      "category": "Кроссовки",
+      "id": 3
+    },
+    {
+      "title": "Nike Dunk Low Retro Premium",
+      "description": "Men's ",
+      "price": 180,
+      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/986fa288-da0b-4d50-8ef8-d8ed2ca823d4/dunk-low-retro-premium-mens-shoes-ntThM8.png",
+      "category": "Кроссовки",
+      "id": 4
+    },
+    {
+      "title": "KD 17",
+      "description": "Men's Shoes",
+      "price": 200,
+      "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9cc63a5-a59c-4365-9898-46a779368e1a/kd17-sunrise-basketball-shoes-Vw01bx.png",
+      "category": "Кроссовки",
+      "id": 5
+    },
+    {
+      "title": "Jus In",
+      "description": "Men's Shoes",
+      "price": 140,
+      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8fb34fe2-cc91-4865-9fa6-79b3b26b8ac7/pegasus-41-mens-road-running-shoes-7S90QB.png",
+      "category": "Кроссовки",
+      "id": 6
+    },
+    {
+      "title": "Puma cap",
+      "description": "Men's ",
+      "price": 100,
+      "image": "https://api.pumakyrgyzstan.kg/uploads/products/webp/940-94002126954.webp",
+      "category": "Кепки",
+      "id": 7
+    },
+    {
+      "title": "Кепка puma розовая ",
+      "description": "Кепки",
+      "price": 90,
+      "image": "https://api.pumakyrgyzstan.kg/uploads/products/webp/940-94002126958.webp",
+      "category": "Кепки",
+      "id": 8
+    },
+    {
+      "title": "Кепка puma розовая ",
+      "description": "Кепки",
+      "price": 90,
+      "image": "https://api.pumakyrgyzstan.kg/uploads/products/webp/940-94002126958.webp",
+      "category": "Кепки",
+      "id": 9
+    },
+    {
+      "title": "Кепка puma розовая ",
+      "description": "Кепки",
+      "price": 90,
+      "image": "https://api.pumakyrgyzstan.kg/uploads/products/webp/940-94002126958.webp",
+      "category": "Кепки",
+      "id": 10
+    },
+    {
+      "title": "Толстовка PUMA X",
+      "description": "PLAYSTATION Graphic Hoodie",
+      "price": 130,
+      "image": "https://api.pumakyrgyzstan.kg/uploads/products/webp/940-94062467801_05.webp",
+      "category": "Толстовки",
+      "id": 11
+    },
+    {
+      "title": "       Толстовка PUMA X",
+      "description": "PLAYSTATION Graphic Hoodie DK SS241",
+      "price": 140,
+      "image": "https://api.pumakyrgyzstan.kg/uploads/products/webp/200-20062467820.webp",
+      "category": "Толстовки",
+      "id": 12
     }
   ],
-  "category": []
+  "category": [
+    {
+      "name": "Кроссовки",
+      "id": 1
+    },
+    {
+      "name": "Кепки",
+      "id": 2
+    },
+    {
+      "name": "Толстовки",
+      "id": 3
+    }
+  ]
 }

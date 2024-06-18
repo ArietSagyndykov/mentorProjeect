@@ -8,18 +8,26 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
 import { useNavigate } from "react-router-dom";
+import Detail from "./Detail";
 
-const ProductCard = ({ title, description, image, price, id }) => {
+const ProductCard = ({ elem }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Card
       sx={{
-        height: 550,
+        height: 650,
         boxShadow: "none",
         margin: "2%",
         width: {
@@ -28,28 +36,35 @@ const ProductCard = ({ title, description, image, price, id }) => {
         },
       }}
     >
-      <CardActionArea>
+      <CardActionArea onClick={handleOpen}>
         <CardMedia
           sx={{ height: 240, borderRadius: 4 }}
-          image={image}
+          image={elem.image}
         ></CardMedia>
       </CardActionArea>
-      <CardContent>
+      <CardContent
+        sx={{
+          padding: "20px 5px 0 px 5px",
+          display: "flex",
+          height: 300,
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
         <Typography variant="h5" fontSize="20" fontWeight={700} component="div">
-          {title}
+          {elem.title}
         </Typography>
         <Stack>
           <Rating name="half-rating" defaultValue={0} precision={1} />
         </Stack>
         <Typography color="black" fontSize="24px" fontWeight={800}>
-          {price} kgs
+          ${elem.price}
         </Typography>
         <Typography color="gray" fontSize="24px" fontWeight={800}>
-          {description}
+          {elem.description}
         </Typography>
         <Button
-          onClick={() => deleteProduct(id)}
-          sx={{ marginRight: "20px" }}
+          onClick={() => deleteProduct(elem.id)}
           color="secondary"
           variant="outlined"
           size="medium"
@@ -60,11 +75,12 @@ const ProductCard = ({ title, description, image, price, id }) => {
           color="primary"
           variant="outlined"
           size="medium"
-          onClick={() => navigate(`/edit/${id}`)}
+          onClick={() => navigate(`/edit/${elem.id}`)}
         >
           Edit
         </Button>
       </CardContent>
+      <Detail elem={elem} open={open} handleClose={handleClose} />
     </Card>
   );
 };

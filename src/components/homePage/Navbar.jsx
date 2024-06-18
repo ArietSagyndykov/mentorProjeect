@@ -32,10 +32,8 @@ function Navbar() {
 
   const pages = [
     { id: 1, title: "Products", link: "/products" },
-    { id: 2, title: "AddProduct", link: "./addProduct" },
-    { id: 3, title: "AddCategory", link: "./addCategory" },
-    { id: 4, title: "About", link: "./about" },
-    { id: 5, title: "Contacts", link: "./contacts" },
+    { id: 2, title: "About", link: "./about" },
+    { id: 3, title: "Contacts", link: "./contacts" },
   ];
 
   return (
@@ -112,7 +110,11 @@ function Navbar() {
               </MenuItem>
             </Link>
           ))}
-
+          <Link to={"/admin"} style={{ textDecoration: "none" }}>
+            <MenuItem sx={{ color: "white", display: "block" }}>
+              <Typography textAlign={"center"}>ADMIN</Typography>
+            </MenuItem>
+          </Link>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"

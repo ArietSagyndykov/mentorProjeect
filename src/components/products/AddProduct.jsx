@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
+import CategorySelect from "./CategorySelect";
 
 const AddProduct = () => {
   const { createProduct } = useProduct();
@@ -10,6 +11,7 @@ const AddProduct = () => {
     description: "",
     price: 0,
     image: "",
+    category: "",
   });
 
   const handleInput = (e) => {
@@ -75,6 +77,7 @@ const AddProduct = () => {
         variant="outlined"
         onChange={handleInput}
       />
+      <CategorySelect handleInput={handleInput} />
       <Button onClick={handleClick} fullWidth variant="contained">
         Add product
       </Button>
